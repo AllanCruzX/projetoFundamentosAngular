@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotFounComponent } from './not-foun/not-foun.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { FooterComponent } from './footer/footer.component';
     declarations: [
         MenuComponent,
         HomeComponent,
-        FooterComponent
+        FooterComponent,
+        NotFounComponent
         
     ],
     imports: [
