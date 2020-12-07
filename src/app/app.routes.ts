@@ -10,6 +10,7 @@ import { ObservablesComponent } from './demos/observables/observables.component'
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
+import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -19,6 +20,7 @@ export const rootRouterConfig: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'feature-data-binding', component: DataBindingComponent },
     { path: 'observable', component: ObservablesComponent },
+    { path: 'filmes', component: FilmesComponent },
     { path: 'cadastro', component: CadastroComponent , canDeactivate: [CadastroGuard]  },
     { path: 'produtos', 
             loadChildren: () => import('./demos/arquitetura-componentes/produto.module')

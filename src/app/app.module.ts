@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { FormsModule , ReactiveFormsModule}   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,10 +21,17 @@ import { ObservablesComponent } from './demos/observables/observables.component'
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { ProdutoModule } from './demos/arquitetura-componentes/produto.module';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import { AdminModule } from './admin/admin.module';
 import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
+import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
+import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
+import { ImageFormaterPipe } from './demos/pipes/filmes/image.pipe';
+import { BarModule } from './demos/bar-di-zones/bar.module';
+import { BarServices } from './demos/bar-di-zones/bar.service';
+
+export const BAR_PROVIDERS: Provider[] = [
+  BarServices
+];
 
 @NgModule({
   declarations: [
@@ -34,24 +41,31 @@ import { CadastroGuard } from './services/cadastro.guard';
     DataBindingComponent,
     ObservablesComponent,
     CadastroComponent,
+    FilmesComponent,
+    FileSizePipe,
+    ImageFormaterPipe
        
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     NavegacaoModule,
-    ProdutoModule,
     TextMaskModule,
     NgBrazil,
     CustomFormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BarModule.forRoot({
+      unidadeId: 10,
+      unidadeToken: 'e45464564646c45v45dc'
+    })
    
   ],
   providers: [
     AuthGuard,
-    CadastroGuard
+    CadastroGuard,
+    //BAR_PROVIDERS
     
   ],
   bootstrap: [AppComponent]
