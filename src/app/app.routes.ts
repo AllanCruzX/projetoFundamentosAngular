@@ -11,6 +11,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
 import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
+import { TodoComponent } from './demos/todo-list/todo.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -21,6 +22,7 @@ export const rootRouterConfig: Routes = [
     { path: 'feature-data-binding', component: DataBindingComponent },
     { path: 'observable', component: ObservablesComponent },
     { path: 'filmes', component: FilmesComponent },
+    { path: 'todo', component: TodoComponent },
     { path: 'cadastro', component: CadastroComponent , canDeactivate: [CadastroGuard]  },
     { path: 'produtos', 
             loadChildren: () => import('./demos/arquitetura-componentes/produto.module')
